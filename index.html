@@ -37,6 +37,13 @@
    <script src="https://kit.fontawesome.com/07012de21a.js" crossorigin="anonymous"></script>
 
    <link rel="stylesheet" href="style.css">
+
+   <!-- Dropdown checkbox -->
+
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="select222.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+
   </head>
   <body>
 
@@ -90,7 +97,7 @@
                 </label>
               
                 <div class="dropdown mt-2 mb-3">
-                  <button class="btn btn-primary dropdown-toggle btn text-start" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                  <!-- <button class="btn btn-primary dropdown-toggle btn text-start" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
                     Select item
                   </button>
                   <ul class="dropdown-menu">
@@ -112,14 +119,46 @@
                         <label class="form-check-label" for="Checkme1">form name 3</label>
                       </div>
                     </a></li>
-                  </ul>
+                  </ul> -->
+
+
+                  <div class="container">
+                    <select class="js-select2" multiple="multiple">
+                      <option value="O1" data-badge="">Form Name 1</option>
+                      <option value="O2" data-badge="">Form Name 2</option>
+                      <option value="O3" data-badge="">Form Name 3</option>
+                      <option value="O4" data-badge="">Form Name 4</option>
+                      <option value="O5" data-badge="">Form Name 5</option>
+                      <option value="O6" data-badge="">Form Name 6</option>
+                      <option value="O7" data-badge="">Form Name 7</option>
+                      <option value="O8" data-badge="">Form Name 8</option>
+                      <option value="O9" data-badge="">Form Name 9</option>
+                      <option value="O10" data-badge="">Form Name 10</option>
+                      <option value="O11" data-badge="">Form Name 11</option>
+                      <option value="O12" data-badge="">Form Name 12</option>
+                      <option value="O13" data-badge="">Form Name 13</option>
+                    </select>
+                  </div>
+              
+              
+                  <script>
+                    
+                  $(".js-select2").select2({
+                    closeOnSelect : false,
+                    placeholder : "Select Form Name",
+                    allowHtml: true,
+                    allowClear: true,
+                    tags: true
+                  });
+                  </script>
+
                 </div>
                 
                 <label class="heading2 fs-6">
                   Select Form URL
                 </label>
                 <div class="dropdown mt-2 mb-3">
-                  <button class="btn btn-primary dropdown-toggle btn text-start" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <!-- <button class="btn btn-primary dropdown-toggle btn text-start" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Select item
                   </button>
                   <ul class="dropdown-menu">
@@ -141,7 +180,38 @@
                         <label class="form-check-label" for="Checkme1">form url 3</label>
                       </div>
                     </a></li>
-                  </ul>
+                  </ul> -->
+
+                <div class="container">
+                  <select class="js-select3" multiple="multiple">
+                    <option value="O1" data-badge="">Form URL 1</option>
+                    <option value="O2" data-badge="">Form URL 2</option>
+                    <option value="O3" data-badge="">Form URL 3</option>
+                    <option value="O4" data-badge="">Form URL 4</option>
+                    <option value="O5" data-badge="">Form URL 5</option>
+                    <option value="O6" data-badge="">Form URL 6</option>
+                    <option value="O7" data-badge="">Form URL 7</option>
+                    <option value="O8" data-badge="">Form URL 8</option>
+                    <option value="O9" data-badge="">Form URL 9</option>
+                    <option value="O10" data-badge="">Form URL 10</option>
+                    <option value="O11" data-badge="">Form URL 11</option>
+                    <option value="O12" data-badge="">Form URL 12</option>
+                    <option value="O13" data-badge="">Form URL 13</option>
+                  </select>
+                </div>
+            
+            
+                <script>
+                  
+                $(".js-select3").select2({
+                  closeOnSelect : false,
+                  placeholder : "Select Form URL",
+                  allowHtml: true,
+                  allowClear: true,
+                  tags: true
+                });
+                </script>
+              
                 </div>
               </div>
         
