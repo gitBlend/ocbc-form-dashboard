@@ -80,6 +80,36 @@
     </nav>
     
 
+    <!-- Show Live Toast Button, Nanti dihapus aja -->
+    <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+    <!-- Toast Alert -->
+    <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body d-flex justify-content-between text-bg-danger rounded-2">
+          <div>
+            Hello, world! This is a toast message.
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div> 
+      </div>
+    </div>
+
+  <!-- Script untuk triger toast -->
+    <script>
+      const toastTrigger = document.getElementById('liveToastBtn')
+      const toastLiveExample = document.getElementById('liveToast')
+
+      if (toastTrigger) {
+      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+      toastTrigger.addEventListener('click', () => {
+      toastBootstrap.show()
+        })
+      }
+    </script>
+
+
+
     <div class="container pt-3">
       <div class="row">
         <div class="col-xl-3">
