@@ -54,22 +54,50 @@
             </div>
           </div>
           <div class="col-xl-6 col-lg-8 col-11">
-            <div class="">
+            <div class=""></div>
               <div class="input-group">
-                <select class="form-select" aria-label="Default select example" id="calendar-input-type" name="calendar-input-type">
+                <select class="form-select" aria-label="Default select example" id="calendar-input-type" name="calendar-input-type" onchange="showHideDateInput(this)">
                   <option value="daily" selected>Daily</option>
                   <option value="weekly">Weekly</option>
                   <option value="monthly">Monthly</option>
                   <option value="yearly">Yearly</option>
                 </select>
-                <div class="form-floating">
-                  <input type="date" class="form-control" id="input-start" name="input-end" placeholder="Start Date">
+
+                <div class="form-floating form-floating-start-daily active-date-form" id="input-form-date-daily">
+                  <input type="date" class="form-control" id="input-start-daily" name="input-end-daily" placeholder="Start Date">
                   <label for="floatingInput1">Start</label>
                 </div>
-                <div class="form-floating">
-                  <input type="date" class="form-control" id="input-end" name="input-end" placeholder="End Date">
+                <div class="form-floating form-floating-start-weekly" id="input-form-date-weekly">
+                  <input type="text" class="form-control" id="input-start-weekly" name="input-end-weekly" placeholder="Start Date">
+                  <label for="floatingInput1">Start</label>
+                </div>
+                <div class="form-floating form-floating-start-monthly" id="input-form-date-monthly">
+                  <input type="text" class="form-control" id="input-start-monthly" name="input-end-monthly" placeholder="Start Date">
+                  <label for="floatingInput1">Start</label>
+                </div>
+                <div class="form-floating form-floating-start-yearly" id="input-form-date-yearly">
+                  <input type="number" value="2022" class="form-control" id="input-start-yearly" name="input-end-yearly" placeholder="Start Date">
+                  <label for="floatingInput1">Start</label>
+                </div>
+
+
+                <div class="form-floating form-floating-end-daily active-date-form" id="input-form-date-daily-end">
+                  <input type="date" class="form-control" id="input-end-daily" name="input-end-daily" placeholder="End Date">
                   <label for="floatingInput2">End</label>
                 </div>
+                <div class="form-floating form-floating-end-weekly"  id="input-form-date-weekly-end">
+                  <input type="text" class="form-control" id="input-end-weekly" name="input-end-weekly" placeholder="End Date">
+                  <label for="floatingInput2">End</label>
+                </div>
+                <div class="form-floating form-floating-end-monthly" id="input-form-date-monthly-end">
+                  <input type="text" class="form-control" id="input-end-monthly" name="input-end-monthly" placeholder="End Date">
+                  <label for="floatingInput2">End</label>
+                </div>
+                <div class="form-floating form-floating-end-yearly" id="input-form-date-yearly-end">
+                  <input type="number" value="2023" class="form-control" id="input-end-yearly" name="input-end" placeholder="End Date">
+                  <label for="floatingInput2">End</label>
+                </div>
+
                 <button class="btn btn-primary"><i class="fa-solid fa-check" style="color: #ffffff;"></i>
                 </button>
               </div>

@@ -144,33 +144,110 @@ function testingFunction(){
 
 
 
-  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 
 
 
-  function calenderInputChange() {
-    var inputBoxStart = document.getElementById('input-start');
-    var inputBoxEnd = document.getElementById('input-end');
-    if (this.value == 'daily') {
-      inputBoxStart.type = 'date'
-      inputBoxEnd.type = 'date'
-    } else if (this.value == 'weekly') {
-      inputBoxStart.type = 'week'
-      inputBoxEnd.type = 'week'
-    } else if (this.value == 'monthly') {
-      inputBoxStart.type = 'month'
-      inputBoxEnd.type = 'month'
-    } else {
-      inputBoxStart.type = 'number'
-      inputBoxStart.value = '2022'
-      inputBoxEnd.type = 'number'
-      inputBoxEnd.value = '2023'
-    }
-  }
+//datepicker untuk weekly dan monthly
 
-  document.getElementById('calendar-input-type').addEventListener('change', calenderInputChange);
+$('#input-start-weekly').datepicker({
+  autoclose: true,
+  format :'mm/dd/yyyy',
+  forceParse :false
+}).on("changeDate", function(e) {
+  //console.log(e.date);
+  var date = e.date;
+  startDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay());
+  endDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay()+6);
+  //$('#weekpicker').datepicker("setDate", startDate);
+  $('#weekpicker').datepicker('update', startDate);
+  $('#weekpicker').val((startDate.getMonth() + 1) + '/' + startDate.getDate() + '/' +  startDate.getFullYear() + ' - ' + (endDate.getMonth() + 1) + '/' + endDate.getDate() + '/' +  endDate.getFullYear());
+});
+
+$('#input-start-monthly').datepicker({
+  autoclose: true,
+  minViewMode: 1,
+  format: 'mm/yyyy'
+   }).on('changeDate', function(selected){
+      startDate = new Date(selected.date.valueOf());
+      startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+      $('.to').datepicker('setStartDate', startDate);
+    }); 
+
+$('#input-end-weekly').datepicker({
+      autoclose: true,
+      format :'mm/dd/yyyy',
+      forceParse :false
+    }).on("changeDate", function(e) {
+      //console.log(e.date);
+      var date = e.date;
+      startDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay());
+      endDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay()+6);
+      //$('#weekpicker').datepicker("setDate", startDate);
+      $('#weekpicker').datepicker('update', startDate);
+      $('#weekpicker').val((startDate.getMonth() + 1) + '/' + startDate.getDate() + '/' +  startDate.getFullYear() + ' - ' + (endDate.getMonth() + 1) + '/' + endDate.getDate() + '/' +  endDate.getFullYear());
+    });
+    
+$('#input-end-monthly').datepicker({
+      autoclose: true,
+      minViewMode: 1,
+      format: 'mm/yyyy'
+       }).on('changeDate', function(selected){
+          startDate = new Date(selected.date.valueOf());
+          startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+          $('.to').datepicker('setStartDate', startDate);
+        }); 
+
+
+
+// untuk hide dan unhide input date berdasarkan value dropdown
+
+function showHideDateInput(select){
+  switch (select.value) {
+    case 'daily':
+      removeActiveClass();
+      removeActiveClass();
+      addActiveClass('input-form-date-daily');
+      addActiveClass('input-form-date-daily-end');
+      break;
+    case 'weekly':
+      removeActiveClass();
+      removeActiveClass();
+      addActiveClass('input-form-date-weekly');
+      addActiveClass('input-form-date-weekly-end');
+    break;
+    case 'monthly':
+      removeActiveClass();
+      removeActiveClass();
+      addActiveClass('input-form-date-monthly');
+      addActiveClass('input-form-date-monthly-end');
+    break;
+    case 'yearly':
+      removeActiveClass();
+      removeActiveClass();
+      addActiveClass('input-form-date-yearly');
+      addActiveClass('input-form-date-yearly-end');
+    break;
+    default:
+  }
+}
+
+function removeActiveClass(){
+  var elems = document.querySelector('.active-date-form');
+  if(elems !== null) {
+    elems.classList.remove('active-date-form');
+  }
+}
+
+function addActiveClass(elementId){
+  $('#'+elementId).addClass('active-date-form');
+}
+ 
+
+
+
 
 
 
